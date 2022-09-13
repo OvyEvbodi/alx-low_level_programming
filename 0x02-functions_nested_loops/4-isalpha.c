@@ -2,8 +2,8 @@
 
 /**
  * _isalpha - checks for alphabetic character
- * @c: the input to be checked
- * Return: 1 if input is an uppercase character,
+ * @c: input to be checked
+ * Return: 1 if input is an alphabet,
  * otherwise, 0
  */
 
