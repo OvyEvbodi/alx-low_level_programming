@@ -6,8 +6,7 @@
 * Return: programs returns 0 on success
 */
 
-int main (void)
+char print_alphabet(void)
 {
-	print_alphabet();
-	return (0);
+	return(write(1, &a, 27));
 }
