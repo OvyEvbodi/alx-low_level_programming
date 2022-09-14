@@ -7,6 +7,7 @@
 
 int print_last_digit(int n)
 {
+<<<<<<< HEAD
 	if (n < 0)
 	{
 		n = -n;
@@ -16,5 +17,7 @@ int print_last_digit(int n)
 		n = n;
 	}
 	_putchar(n);
+=======
+>>>>>>> a5c5b473014a195cf707cacdb47c9c7cb3d045d6
 	return (n % 10);
 }
