@@ -24,6 +24,7 @@ void puts2(char *str)
 		*_putchar(str[i]);
 		*i = i + 2;
 		*/
+		i++;
 	}
 
 	for (j = 0; j < i; j += 2)
