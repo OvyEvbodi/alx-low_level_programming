@@ -24,7 +24,7 @@ void puts_half(char *str)
 		{
 			if (i >= half_len)
 			{
-				putchar(str[i]);
+				_putchar(str[i]);
 			}
 		}
 	}
@@ -35,7 +35,7 @@ void puts_half(char *str)
 		{
 			if (i >= half_len)
 			{
-				putchar(str[i]);
+				_putchar(str[i]);
 			}
 		}
 	}
