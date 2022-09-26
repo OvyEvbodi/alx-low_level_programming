@@ -11,7 +11,7 @@
 
 char *_strchr(char *s, char c)
 {
-	unsigned int i = 0, s_count = 0;
+	unsigned int i = 0;
 
 	for (; s[i]; i++)
 	{
