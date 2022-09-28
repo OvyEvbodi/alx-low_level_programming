@@ -33,5 +33,5 @@ int _sqrt_helper(int n, int s_root)
 		return (s_root);
 	}
 	s_root++;
-	_sqrt_helper(n, s_root);
+	return (_sqrt_helper(n, s_root));
 }
