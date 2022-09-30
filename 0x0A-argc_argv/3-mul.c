@@ -5,8 +5,6 @@
 /**
  * main - multiplies two numbers
  * @s: string to be converted
- * @argc: the number of arguments passed
- * @argv: a pointer to the array of arguments passed
  *
  * Return: 0 on success,
  * otherwise 1
@@ -17,7 +15,7 @@ int main(int argc, char **argv)
 {
 	int num1, num2;
 
-	if(!(argc == 3))
+	if (!(argc == 3))
 	{
 		printf("Error\n");
 		return (1);
