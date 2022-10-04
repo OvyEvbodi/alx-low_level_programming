@@ -41,7 +41,7 @@ char *argstostr(int ac, char **av)
 		{
 			for (k = 0; av[j][k]; k++)
 			{
-				arr[l] = av[k];
+				arr[l] = av[j][k];
 				l++;
 			}
 			_putchar('\n');
