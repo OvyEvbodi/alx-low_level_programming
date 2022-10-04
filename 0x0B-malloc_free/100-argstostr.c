@@ -42,7 +42,7 @@ char *argstostr(int ac, char **av)
 			arr[l] = av[i][j];
 			l++;
 		}
-		 _putchar('\n');
+		 arr[l] = '\n';
 		 l++;
 	}
 	return (arr);
