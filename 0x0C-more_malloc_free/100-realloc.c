@@ -31,26 +31,21 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	{
 		/*free(new_ptr);*/
 		arr = malloc(new_size);
-		if (arr == NULL)
+		/*if (arr == NULL)
 			return (NULL);
+		*/
 		return (arr);
 	}
 	/*initialize new array*/
 	if (new_size > old_size)
 	{
-		while (new_ptr[i] && i < old_size)
-		{
+		for (; new_ptr[i] && i < old_size; i++)
 			arr[i] = new_ptr[i];
-			i++;
-		}
 	}
 	else
 	{
-		while (new_ptr[i] && i < new_size)
-		{
+		for (; new_ptr[i] && i < new_size; i++)
 			arr[i] = new_ptr[i];
-			i++;
-		}
 	}
 	free(new_ptr);
 	return (arr);
