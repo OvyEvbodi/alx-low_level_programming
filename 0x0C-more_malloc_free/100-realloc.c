@@ -8,44 +8,45 @@
  * @ptr: a pointer to the memory previously allocated
  * @old_size: the old size
  * @new_size: the new size
+ * Return: a pointer to the space in memory
  */
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *arr;
-	unsigned int = 0;
+	char *new_ptr = ptr;
+	unsigned int i = 0;
 
 	if (new_size == old_size)
-		return (ptr);
-	if (new_size == 0 && ptr != NULL)
+		return (new_ptr);
+	if (new_size == 0 && new_ptr != NULL)
 		return (NULL);
 	arr = malloc(new_size);
 	if (arr == NULL)
 		return (NULL);
-	if (ptr == NULL)
+	if (new_ptr == NULL)
 	{
-		free(ptr);
+		arr = malloc(new_size);
+		free(new_ptr);
 		exit(EXIT_SUCCESS);
 	}
 	/*initialize new array*/
 	if (new_size > old_size)
 	{
-		while (ptr && i < old_size)
+		while (new_ptr[i] && i < old_size)
 		{
-			arr[i] = ptr;
-			ptr++;
+			arr[i] = new_ptr[i];
 			i++;
 		}
 	}
 	else
 	{
-		while (ptr && i < new_size)
+		while (new_ptr[i] && i < new_size)
 		{
-			arr[i] = ptr;
-			ptr++;
+			arr[i] = new_ptr[i];
 			i++;
 		}
 	}
-	free(ptr);
+	free(new_ptr);
 	return (arr);
 }
