@@ -69,8 +69,9 @@ int _atoi(char *s)
 	}
 
 	if (f == 0)
+	{
 		printf("Eror\n");
 		exit (98);
-
+	}
 	return (n);
 }
