@@ -28,7 +28,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	{
 		arr = malloc(new_size);
 		free(new_ptr);
-		exit(EXIT_SUCCESS);
+		return (arr);
 	}
 	/*initialize new array*/
 	if (new_size > old_size)
