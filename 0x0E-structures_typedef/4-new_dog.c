@@ -10,9 +10,9 @@
  *
  * Return: a pointer to the new dog's stucture
  */
- 
+
 dog_t *new_dog(char *name, float age, char *owner)
- {
+{
 	dog_t *pupp;
 
 	pupp = malloc(sizeof(dog_t));
@@ -20,13 +20,23 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 
 	pupp->name = _strdup(name);
+	if (!(pupp->name))
+	{
+		free(pupp);
+		return (NULL);
+	}
 	pupp->owner = _strdup(owner);
+	if (!(pupp->owner))
+	{
+		free(pupp->name);
+		free(pupp);
+		return (NULL);
+	}
 	pupp->age = age;
-    
-	return (pupp);
- }
 
-#include "main.h"
+	return (pupp);
+}
+
 #include <stdio.h>
 #include <stdlib.h>
 
