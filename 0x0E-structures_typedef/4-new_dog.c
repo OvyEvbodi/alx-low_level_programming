@@ -37,8 +37,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	return (pupp);
 }
 
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * _strdup - returns a pointer to a newly allocated space in memory,
