@@ -26,7 +26,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			printf("%s", single_string);
 		}
 		else if (!single_string)
-			printf("(nil)");
+			if (i == 0)
+				printf("(nil)");
+			else
+				printf("%s(nil)", separator);
 		else
 		{
 			if (i == 0)
