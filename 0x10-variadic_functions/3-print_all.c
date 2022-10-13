@@ -20,7 +20,7 @@ void print_all(const char * const format, ...)
 
 	len = strlen(format);
 
-	while (format && i < len)
+	while (format[i] && i < len)
 	{
 		switch (format[i])
 		{
