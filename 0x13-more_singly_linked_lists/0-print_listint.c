@@ -7,7 +7,7 @@
  * Return: the number of elements in the list
  */
 
-size_t print_list(const list_t *h)
+size_t print_listint(const listint_t *h)
 {
 	size_t elements = 0;
 
@@ -17,7 +17,7 @@ size_t print_list(const list_t *h)
 	}
 	while (h)
 	{
-		printf("%d", h->n);
+		printf("%d\n", h->n);
 		elements++;
 		h = h->next;
 	}
