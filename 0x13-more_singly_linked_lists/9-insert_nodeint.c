@@ -5,7 +5,7 @@
  * @head: the head node
  * @idx: the index position to insert the new node
  * @n: the data to be stored in the new node
- * 
+ *
  * Return: a pointer to the new node,
  * NULL if it failed
  */
@@ -13,6 +13,7 @@
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	unsigned int i = 0;
+
 	listint_t *temp, *new, *track;
 
 	temp = *head;
@@ -29,14 +30,15 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		*head = new;
 		return (new);
 	}
-	while(temp && i < idx)
+	while (temp && i < idx)
 	{
 		*head = temp;
 		temp = temp->next;
 		i++;
 	}
-	new->next= temp;
+	new->next = temp;
 	(*head)->next = new;
 	*head = track;
 	return (new ? new : NULL);
 }
+
