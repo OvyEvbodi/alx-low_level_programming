@@ -2,7 +2,7 @@
 
 /**
  * get_nodeint_at_index - returns the nth node of a listint_t linked list
- * @head: list_t list to be freed
+ * @head: the head node
  * @index: the index position of the node to be returned
  * 
  * Return: a pointer to the node
