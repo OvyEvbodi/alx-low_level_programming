@@ -30,8 +30,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		temp = temp->next;
 	}
 	track->next = temp->next->next;
-	if (!(temp->next))
-	return (-1);
 	free(temp->next);
 	return (1);
 
