@@ -13,7 +13,7 @@ char *strdup_binary(const char *str, unsigned int *len);
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int len = 0, sum, index, weight = 1;
+	unsigned int len = 0, sum = 0, index, weight = 1;
 	char *new_str;
 
 	if (b == NULL)
@@ -76,8 +76,4 @@ char *strdup_binary(const char *str, unsigned int *len)
 	return (new_str);
 }
 
-int main(void){
-	const char *str = "1011";
-	binary_to_uint(str);
-	return (0);
-}
+
