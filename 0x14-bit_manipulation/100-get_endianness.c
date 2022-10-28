@@ -4,7 +4,7 @@
  * get_endianness - checks the endianness
  *
  *
- *Return 1 if it's little endian,
+ *Return: 1 if it's little endian,
  * otherwise, 0 for big endian architecture
  */
 
