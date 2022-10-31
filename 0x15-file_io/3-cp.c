@@ -108,13 +108,17 @@ int create_file(const char *filename, char *text_content)
 
 int main(int argc, char **argv)
 {
-	ssize_t fd_to, fd_from, fd_buff;
-	char buff[1024];
+	ssize_t fd_to, fd_from, fd_buff, len = 0;
+	char *buff = malloc(sizeof(char) * BUFSIZ);
+
+	while (argv[1][len])
+		len++;
+	buff = realloc(buff, len);
 
 	if (argc != 3)
 		handle_error(FEW_ARGS, "Usage: cp file_from file_to", "");
 	fd_buff = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0000664);
-	fd_from = new_read_textfile(argv[1], BUFSIZ, fd_buff);
+	fd_from = new_read_textfile(argv[1], len, fd_buff);
 	if (fd_from == -1)
 		handle_error(READ_ERR, "Error: Can't read from file ", argv[1]);
 	fd_to = create_file(argv[2], buff);
