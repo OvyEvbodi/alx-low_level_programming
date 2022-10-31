@@ -14,10 +14,14 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	ssize_t fd;
+
 	if (filename == NULL)
 		return (0);
-	fd = read(STDIN_FILENO, (void *)filename, letters);
+	fd = open(filename, O_RDONLY);
+	fd = read(fd, (void *)filename, letters);
+	fd = write(STDOUT_FILENO, (void *)filename, fd);
 	if (fd == -1)
 		return (0);
+	close(fd);
 	return (fd);
 }
