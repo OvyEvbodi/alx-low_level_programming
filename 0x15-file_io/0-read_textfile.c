@@ -22,10 +22,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	fd_r = read(fd_o, (void *)filename, letters);
 	if (fd_r == -1)
+	{
+		close(fd_o);
 		return (0);
+	}
 	fd_w = write(STDOUT_FILENO, (void *)filename, fd_r);
 	if (fd_w == -1 || fd_r != fd_w)
+	{
+		close(fd_o);
 		return (0);
+	}
 	close(fd_o);
 	return (fd_w);
 }
