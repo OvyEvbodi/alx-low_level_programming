@@ -27,7 +27,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		close(fd_o);
 		return (0);
 	}
-	close(fd_o);
 	fd_w = write(STDOUT_FILENO, (void *)filename, fd_r);
 	if (fd_w == -1 || fd_r != fd_w)
 	{
