@@ -17,7 +17,7 @@ void close_error(ssize_t dest_fd)
  * handle_error - helper function to handle errors
  * @buffer: the string to be displayed to the standard error
  * @msg: the error message
- * @buffer: the filename
+ * @err_code: th flag to tag errors
  * @dest_fd: the fildes for the destination
  * @src_fd: the fildes for the source
  *
@@ -124,8 +124,8 @@ int main(int argc, char **argv)
 		handle_error(READ_ERR, "Error: Can't read from file ",
 		argv[1], fd_o_dest, 0);
 	if (close(fd_o_dest) == -1)
-			close_error(fd_o_dest);
+		close_error(fd_o_dest);
 	if (close(fd_src) == -1)
-			close_error(fd_src);
+		close_error(fd_src);
 	return (0);
 }
