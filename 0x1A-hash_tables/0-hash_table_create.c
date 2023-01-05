@@ -15,7 +15,7 @@ hash_table_t *hash_table_create(unsigned long int size)
  
 	if (!table_ptr) MEMORY_ERROR;
 	table_ptr->size = size;
-	table_ptr->array = calloc(sizeof(hash_node_t *), size);
+	table_ptr->array = calloc(size, sizeof(hash_node_t *));
 	if (!table_ptr->array) MEMORY_ERROR;
 	return (table_ptr);
 }
