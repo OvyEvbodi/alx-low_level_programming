@@ -61,7 +61,7 @@ int chaining(hash_node_t **new, const char *key, const char *value)
 {
 	hash_node_t *temp = *new;
 
-	while (temp->next)
+	while (temp)
 	{
 		if (strcmp(temp->key, key) == 0)
 		{
