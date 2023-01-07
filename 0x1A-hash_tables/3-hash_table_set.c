@@ -59,24 +59,24 @@ int add_node(hash_node_t **new, const char *key, const char *value)
 */
 int chaining(hash_node_t **new, const char *key, const char *value)
 {
-	hash_node_t *temp = *new;
+	hash_node_t *temp = *new, *chain_node = NULL;
 
 	while (temp)
 	{
 		if (strcmp(temp->key, key) == 0)
 		{
-		free((temp)->value);
-		(temp)->value = strdup(value);
-		SUCCESS;
+			free((temp)->value);
+			(temp)->value = strdup(value);
+			SUCCESS;
 		}
 		temp = temp->next;
 	}
 	temp = malloc(sizeof(hash_node_t));
 	if (!temp)
 		TERMINATE;
-	temp->key = strdup(key);
-	temp->value = strdup(value);
-	temp->next = *new;
-	*new = temp;
+	chain_node->key = strdup(key);
+	chain_node->value = strdup(value);
+	chain_node->next = *new;
+	*new = chain_node;
 	SUCCESS;
 }
