@@ -9,7 +9,7 @@
  *
  * Return: 1 on success,
  * otherwise, 0
-*/
+ */
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
@@ -36,7 +36,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  * @new: the new node to add
  * @key: the key
  * @value: the value associated with the key
-*/
+ * Return: 1 on success,
+ * otherwise, 0
+ */
 
 int add_node(hash_node_t **new, const char *key, const char *value)
 {
@@ -56,7 +58,10 @@ int add_node(hash_node_t **new, const char *key, const char *value)
  * @new: the new node to add
  * @key: the key
  * @value: the value associated with the key
-*/
+ *
+ * Return: 1 on success,
+ * otherwise, 0
+ */
 int chaining(hash_node_t **new, const char *key, const char *value)
 {
 	hash_node_t *temp = *new, *chain_node = NULL;
