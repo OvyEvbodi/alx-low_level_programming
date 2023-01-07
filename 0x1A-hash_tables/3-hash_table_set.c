@@ -76,8 +76,8 @@ int chaining(hash_node_t **arr_bucket, const char *key, const char *value)
 		}
 		temp = temp->next;
 	}
-	temp = malloc(sizeof(hash_node_t));
-	if (!temp)
+	chain_node = malloc(sizeof(hash_node_t));
+	if (!chain_node)
 		TERMINATE;
 	chain_node->key = strdup(key);
 	chain_node->value = strdup(value);
