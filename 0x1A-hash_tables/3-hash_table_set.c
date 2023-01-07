@@ -14,49 +14,48 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t **new;
+	hash_node_t **arr_bucket;
 
 	if (!key || !ht || !value || key[0] == '\0')
 		TERMINATE;
 
 	index = key_index((const unsigned char *)key, ht->size);
-	new = &(ht->array[index]);
-	if (*new == NULL)
-		if (CREATE_NODE(new, key, value) == 1)
-			SUCCESS;
-	if (strcmp((*new)->key, key) == 0)
+	arr_bucket = &(ht->array[index]);
+	if (*arr_bucket == NULL)
+		return (CREATE_NODE(arr_bucket, key, value));
+	if (strcmp((*arr_bucket)->key, key) == 0)
 	{
-		free((*new)->value);
-		(*new)->value = strdup(value);
+		free((*arr_bucket)->value);
+		(*arr_bucket)->value = strdup(value);
 		SUCCESS;
 	}
-	return (chaining(new, key, value));
+	return (chaining(arr_bucket, key, value));
 }
 
 /**
  * add_node - add a new node to a hash table
- * @new: the new node to add
+ * @arr_bucket: the new node to add
  * @key: the key
  * @value: the value associated with the key
  * Return: 1 on success,
  * otherwise, 0
  */
 
-int add_node(hash_node_t **new, const char *key, const char *value)
+int add_node(hash_node_t **arr_bucket, const char *key, const char *value)
 {
-	*new = malloc(sizeof(hash_node_t));
-	if (!*new)
+	*arr_bucket = malloc(sizeof(hash_node_t));
+	if (!*arr_bucket)
 		TERMINATE;
-	(*new)->key = strdup(key);
-	(*new)->value = strdup(value);
-	(*new)->next = NULL;
+	(*arr_bucket)->key = strdup(key);
+	(*arr_bucket)->value = strdup(value);
+	(*arr_bucket)->next = NULL;
 	SUCCESS;
 }
 
 
 /**
  * chaining - handles collisions for hash tables
- * @new: the new node to add
+ * @arr_bucket: the new node to add
  * @key: the key
  * @value: the value associated with the key
  *
