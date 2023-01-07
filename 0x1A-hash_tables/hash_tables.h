@@ -5,9 +5,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MEMORY_ERROR (return NULL)
-#define TERMINATE (return 0)
-#define SUCCESS (return 1)
+#define MEMORY_ERROR return NULL
+#define TERMINATE return 0
+#define SUCCESS return 1
 #define CREATE_NODE add_node
 /**
  * struct hash_node_s - Node of a hash table
