@@ -62,9 +62,9 @@ int add_node(hash_node_t **arr_bucket, const char *key, const char *value)
  * Return: 1 on success,
  * otherwise, 0
  */
-int chaining(hash_node_t **new, const char *key, const char *value)
+int chaining(hash_node_t **arr_bucket, const char *key, const char *value)
 {
-	hash_node_t *temp = *new, *chain_node = NULL;
+	hash_node_t *temp = *arr_bucket, *chain_node = NULL;
 
 	while (temp)
 	{
@@ -81,7 +81,7 @@ int chaining(hash_node_t **new, const char *key, const char *value)
 		TERMINATE;
 	chain_node->key = strdup(key);
 	chain_node->value = strdup(value);
-	chain_node->next = *new;
-	*new = chain_node;
+	chain_node->next = *arr_bucket;
+	*arr_bucket = chain_node;
 	SUCCESS;
 }
