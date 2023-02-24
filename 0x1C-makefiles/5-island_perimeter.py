@@ -15,7 +15,7 @@ def island_perimeter(grid):
         The perimeter of the rectangle
     """
 
-    width, height, pos, perimeter = 0, 0, 0, 0
+    width, height, pos, pos_width, perimeter = 0, 0, 0, 0, 0
     if type(grid) == list and all(type(row) == list for row in grid)\
             and all(type(x) == int for row in grid for x in row):
         for i in range(len(grid)):
@@ -30,9 +30,15 @@ def island_perimeter(grid):
                     height += 1
                     if height == 1:
                         pos = j
+                    if grid[i][j] == 1 and j != pos:
+                        return
                     if j != len(grid[i]) - 1 and grid[i][j + 1] == 1:
                         while grid[i][j] == 1 and width <= 100:
+                            pos_width = i
                             width += 1
                             j += 1
+                elif i != pos_width and grid[i][j] == 1:
+                    return
         perimeter = 2 * (width + height)
+        print(width, height)
         return perimeter
