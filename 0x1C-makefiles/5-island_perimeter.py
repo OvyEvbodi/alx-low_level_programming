@@ -43,5 +43,4 @@ def island_perimeter(grid):
                         and width > 1):
                     return
         perimeter = 2 * (width + height)
-        print(width, height)
         return perimeter
