@@ -9,7 +9,7 @@ RM = rm -f
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-.c.o:
+%.o: %.c
 	$(CC) -c -o $@ $<
 
 clean:
