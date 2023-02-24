@@ -33,11 +33,14 @@ def island_perimeter(grid):
                     if grid[i][j] == 1 and j != pos:
                         return
                     if j != len(grid[i]) - 1 and grid[i][j + 1] == 1:
-                        while grid[i][j] == 1 and width <= 100:
+                        while j != len(grid[i]) - 1 and\
+                                grid[i][j] == 1 and width <= 100:
                             pos_width = i
                             width += 1
                             j += 1
-                elif i != pos_width and grid[i][j] == 1:
+                elif (i != pos_width and grid[i][j] == 1)\
+                    or (grid[i][j] == 1 and grid[i][j - 1] == 0
+                        and width > 1):
                     return
         perimeter = 2 * (width + height)
         print(width, height)
