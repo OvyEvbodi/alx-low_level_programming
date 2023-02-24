@@ -17,7 +17,8 @@ def island_perimeter(grid):
 
     width, height, pos, pos_width, perimeter = 0, 0, 0, 0, 0
     if type(grid) == list and all(type(row) == list for row in grid)\
-            and all(type(x) == int for row in grid for x in row):
+            and all(type(x) == int for row in grid for x in row)\
+                and len(grid) <= 100:
         for i in range(len(grid)):
             if i == 0 or i == len(grid) - 1:
                 for j in range(len(grid[i])):
@@ -26,7 +27,7 @@ def island_perimeter(grid):
             for j in range(len(grid[i])):
                 if (j == 0 or j == len(grid[i]) - 1) and grid[i][j] != 0:
                     return
-                if grid[i][j] == 1 and not width and height <= 100:
+                if grid[i][j] == 1 and not width:
                     height += 1
                     if height == 1:
                         pos = j
@@ -34,7 +35,7 @@ def island_perimeter(grid):
                         return
                     if j != len(grid[i]) - 1 and grid[i][j + 1] == 1:
                         while j != len(grid[i]) - 1 and\
-                                grid[i][j] == 1 and width <= 100:
+                                grid[i][j] == 1:
                             pos_width = i
                             width += 1
                             j += 1
