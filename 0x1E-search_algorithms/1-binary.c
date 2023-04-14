@@ -36,7 +36,7 @@ int binary_search(int *array, size_t size, int value)
 			start = pivot + 1;
 	}
         if (value > array[end]) { printf("%lu", array[end]); }
-	else if (value < array[start]) { printf("%lu", array[start]);}
+	if (value < array[start]) { printf("%lu", array[start]);}
 	
 	return (-1);
 }
